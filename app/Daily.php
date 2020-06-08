@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Daily extends Model
 {
     protected $fillable = [
-        'first_answer', 'second_answer', 'third_answer', 'user_id'
+        'valor', 'quantidade_estoque', 'nome', 'status', 'descricao', 'image','user_id'
     ];
 
     public function user()

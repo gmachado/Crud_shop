@@ -15,10 +15,13 @@ class CreateDailiesTable extends Migration
     {
         Schema::create('dailies', function (Blueprint $table) {
             $table->id();
-            $table->string('first_answer');
-            $table->string('second_answer');
-            $table->string('third_answer');
+            $table->string('valor');
+            $table->string('quantidade_estoque');
+            $table->string('nome');
+            $table->boolean('status')->default(1);
+            $table->string('descricao');
             $table->unsignedBigInteger('user_id');
+            $table->string('image')->nullable(); 
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

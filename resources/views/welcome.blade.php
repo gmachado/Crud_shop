@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>LOJA</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,12 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    EP Daily Scrum
+                    EP LOCAL SHOP
                 </div>
                 <div class="m-b-md">
-                What did you do yesterday? <br>
-                What will you do today? <br>
-                Are there any impediments in your way? <br>
+                Cadastre seu produto <br>
+                acompanhe em tempo real <br>
+                veja os melhores preços do mercado <br>
                 </div>
                 
                 <div class="links">

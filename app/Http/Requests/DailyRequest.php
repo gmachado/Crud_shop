@@ -27,6 +27,9 @@ class DailyRequest extends FormRequest
             'primresp' => 'required',
             'segunresp' => 'required',
             'tercresp' => 'required',
+            'quartaresp' => 'required',
+            'quintaresp' => 'required',
+            'sextaresp' => 'nullable|image',
         ];
     }
 
@@ -34,9 +37,11 @@ class DailyRequest extends FormRequest
     public function messages()
     {
         return [
-            'primresp.required' => '"O que você fez ontem?" é um campo obrigatório.',
-            'segunresp.required' => '"O que você fará hoje?" é um campo obrigatório.',
-            'tercresp.required' => '"Há algum impedimento no seu caminho?" é um campo obrigatório.',
+            'primresp.required' => '"valor" é um campo obrigatório.',
+            'segunresp.required' => '"quantidade em estoque" é um campo obrigatório.',
+            'tercresp.required' => '"nome" é um campo obrigatório.',
+            'quartaresp.required' => '"status" é um campo obrigatório.',
+            'quintaresp.required' => '"descrição" é um campo obrigatório.',
         ];
     }
 }

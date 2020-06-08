@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Welcome</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    <p>Sistema desenvolvido como conteúdo para as aulas de PHP com o Framework Laravel, <br>
-                     tendo como objetivo criar uma ferramenta de automação do preenchimento do Daily Scrum</p>
+                    <h2>BEM VINDO AO LOCAL SHOP <br></h2>
+                    <p> click em meus produtos  para começar</p>
                 </div>
             </div>
         </div>

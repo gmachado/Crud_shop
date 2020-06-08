@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DailyRequest;
+use Illuminate\Support\Facades\Storage;
 
 class DailyController extends Controller
 {
@@ -39,6 +40,10 @@ class DailyController extends Controller
 
     }
 
+
+
+
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -50,11 +55,21 @@ class DailyController extends Controller
             $user_id = Auth::user()->id;
         
             $daily = new Daily;
-            $daily->first_answer = $request->primresp;
-            $daily->second_answer = $request->segunresp;
-            $daily->third_answer = $request->tercresp;
+            $daily->valor = $request->primresp;
+            $daily->quantidade_estoque = $request->segunresp;
+            $daily->nome = $request->tercresp;
+            $daily->status =$request->quartaresp;
+            $daily->descricao = $request->quintaresp;
+            $daily->image = $request->sextaresp;
+            
 
+            if ($request->hasFile('sextaresp')){
+              $imagePath = $request->sextaresp->store('products');
 
+              $daily['image'] = $imagePath;
+            }
+
+          
             $daily->user_id = $user_id;
 
             $daily->save();
@@ -98,11 +113,38 @@ class DailyController extends Controller
      */
     public function update(DailyRequest $request, $id)
     {
-        //
+        
         $daily = Daily::find($id);
-        $daily->first_answer = $request->primresp;
-        $daily->second_answer = $request->segunresp;
-        $daily->third_answer = $request->tercresp;
+        $daily->valor = $request->primresp;
+        $daily->quantidade_estoque = $request->segunresp;
+        $daily->nome = $request->tercresp;
+        $daily->status = $request->quartaresp;
+        if($daily->status == 1){
+            $daily->status = 1;
+        }
+        else{
+            $daily->status = 0;
+        }
+        $daily->descricao = $request->quintaresp;
+        $daily->image = $request->sextaresp;
+        
+        
+
+        if ($request->hasFile('sextaresp')){
+
+            if ($daily->image && Storage::exists($daily->image)) {
+                Storage::delete($daily->image);
+                
+            }
+
+            
+
+
+            $imagePath = $request->sextaresp->store('products');
+
+            $daily['image'] = $imagePath;
+          }
+
 
         $daily->save();
 
@@ -119,8 +161,10 @@ class DailyController extends Controller
      */
     public function destroy($id)
     {
-        $res=Daily::where('id', $id)->delete();
 
+
+        $res=Daily::where('id', $id)->delete();
+        
         
 
         return redirect()->route('list');

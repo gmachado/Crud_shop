@@ -35,10 +35,10 @@
                     <ul class="navbar-nav mr-auto">
                         @if (Auth::check())
                             <li class="nav-item">
-                                <a class="nav-link" href="/my_daily">Meus Dailys</a>
+                                <a class="nav-link" href="/my_daily">Meus Produtos</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="/daily_list">Todos os Dailys</a>
+                                <a class="nav-link" href="/daily_list">Todos os Produtos</a>
                             </li> 
                         @endif    
                     </ul>

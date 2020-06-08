@@ -3,23 +3,39 @@
 @section('content')
 <body>
     <div  class="container">
-        <h1>Editar Daily</h1>
+        <h1>Editar carrinho</h1>
         @if($errors->any())
             <div class="alert alert-danger" role="alert">
                 {{$errors->first()}}
             </div>    
         @endif
-        <form action="/daily_update/{{$daily->id}}"  method="post">
+        <form action="/daily_update/{{$daily->id}}"  method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="primeiro"  class="col-form-label-lg">O que você fez ontem?</label>
-            <input type="text" id=" " name="primresp" value='{{$daily->first_answer }}' required class="form-control" id="primeiro">
+            <label for="primeiro"  class="col-form-label-lg">valor</label>
+            <input type="number" id=" " name="primresp" value='{{$daily->valor }}' required class="form-control" id="primeiro">
 
-            <label for="segundo"  class="col-form-label-lg">O que você fará hoje?</label>
-            <input type="text" id=" " name="segunresp" value='{{$daily->second_answer}}' class="form-control" id="segundo">
+            <label for="segundo"  class="col-form-label-lg">quantidade em estoque</label>
+            <input type="number" id=" " name="segunresp" value='{{$daily->quantidade_estoque }}' class="form-control" id="segundo">
 
-            <label for="terceiro"  class="col-form-label-lg">Há algum impedimento no seu caminho?</label>
-            <input type="text" id=" " name="tercresp" value='{{$daily->third_answer}}' class="form-control" id="terceiro">
+            <label for="terceiro"  class="col-form-label-lg">nome</label>
+            <input type="text" id=" " name="tercresp" value='{{$daily->nome}}' class="form-control" id="terceiro">
+
+
+             <label for="quarto"  class="col-form-label-lg">status</label>
+           
+            <br><label>visivel
+                <input type="radio" id=" " name="quartaresp" value='1' class="form-control" id="quarto"></label></br>
+                 
+            <br><label>invisivel
+                <input type="radio" id=" " name="quartaresp" value='0' class="form-control" id="quarto"></label></br>
+           
+            <label for="quinto"  class="col-form-label-lg">descrição</label>
+            <input type="text" id=" " name="quintaresp" value='{{$daily->descricao}}' class="form-control" id="quinto">
+
+            <label for="sexto"  class="col-form-label-lg">image: </label>
+            <input type="file" id=" " name="sextaresp" value='{{$daily->image}}' class="form-control" id="sexto">
+
         </div>    
             <input class="btn btn-success" type="submit" value="Atualizar">
             <a class="btn btn-danger" href="/daily_list">Cancelar</a>

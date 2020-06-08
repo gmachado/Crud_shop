@@ -20,9 +20,9 @@ use App\User;
 
 $factory->define(Daily::class, function (Faker $faker) {
     return [
-        'first_answer' => $faker->text,
-        'second_answer' => $faker->text,
-        'third_answer' => $faker->text,
-        'user_id' => User::all()->random()->id,
+       'first_answer' => $faker->text,
+       'second_answer' => $faker->text,
+       'third_answer' => $faker->text,
+      'user_id' => User::all()->random()->id,
     ];
 });
